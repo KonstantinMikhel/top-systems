@@ -1,2 +1,5 @@
 # Ignore VSCode settings
 *.vscode
+
+# Ignore built binaries
+*
