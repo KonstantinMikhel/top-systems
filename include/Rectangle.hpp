@@ -10,7 +10,7 @@ private:
     double height;
 
 public:
-    Rectangle::Rectangle(const Point& center, double width, double height) 
+    Rectangle(const Point& center, double width, double height) 
         : Shape(center), width(width), height(height)
     {}
 
