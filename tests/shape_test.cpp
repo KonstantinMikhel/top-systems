@@ -3,6 +3,7 @@
 #include "Point.hpp"
 #include "Rectangle.hpp"
 #include "Square.hpp"
+#include "Triangle.hpp"
 
 
 constexpr auto Width{800};
@@ -31,7 +32,13 @@ void display() {
     auto center_sqr{Point{400, 500}};
     auto square{Square{center_sqr, 75}};
     square.draw();
-    
+
+    auto tri_first{Point{600, 100}};
+    auto tri_second{Point{500, 200}};
+    auto tri_third{Point{700, 300}};
+    auto triangle{Triangle{tri_first, tri_second, tri_third}};
+    triangle.draw();
+
     // Flush OpenGL buffer
     glFlush();
 }
