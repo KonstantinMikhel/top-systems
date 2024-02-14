@@ -1,5 +1,6 @@
 #pragma once
 
+#include <GL/glut.h>
 #include "Point.hpp"
 #include "Polygon.hpp"
 
@@ -22,6 +23,7 @@ public:
         vertices.push_back(Point{x + width / 2, y + height / 2});
         vertices.push_back(Point{x - width / 2, y + height / 2});   
     }
+
     void draw() const override {
         glBegin(GL_QUADS);
         for (const auto& vertex : vertices) { 
