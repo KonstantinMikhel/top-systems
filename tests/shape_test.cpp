@@ -2,6 +2,7 @@
 
 #include "Point.hpp"
 #include "Rectangle.hpp"
+#include "Square.hpp"
 
 
 constexpr auto Width{800};
@@ -23,10 +24,14 @@ void display() {
     // Set color to green
     glColor3f(0.0, 1.0, 0.0);
 
-    auto center{Point{200, 300}};
-    auto rectangle{Rectangle{center, 100, 50}};
+    auto center_rect{Point{200, 300}};
+    auto rectangle{Rectangle{center_rect, 100, 50}};
     rectangle.draw();
 
+    auto center_sqr{Point{400, 500}};
+    auto square{Square{center_sqr, 75}};
+    square.draw();
+    
     // Flush OpenGL buffer
     glFlush();
 }
