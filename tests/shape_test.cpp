@@ -5,7 +5,7 @@
 #include "Square.hpp"
 #include "Triangle.hpp"
 #include "Circle.hpp"
-
+#include "Polygon.hpp"
 
 constexpr auto WindowWidth{800};
 constexpr auto WindowHeight{600};
@@ -26,22 +26,21 @@ void display() {
     // Set color to green
     glColor3f(0.0, 1.0, 0.0);
 
-    auto center_rect{Point{200, 300}};
-    auto rectangle{Rectangle{center_rect, 100, 50}};
+    Rectangle rectangle{ Point{200, 300}, 100, 50 };
     rectangle.draw();
 
-    auto center_sqr{Point{400, 500}};
-    auto square{Square{center_sqr, 75}};
+    Square square{ Point{400, 500}, 75 };
     square.draw();
 
-    auto tri_first{Point{600, 100}};
-    auto tri_second{Point{500, 200}};
-    auto tri_third{Point{700, 300}};
-    auto triangle{Triangle{tri_first, tri_second, tri_third}};
+    std::vector<Point> triangle_vertices{
+        {600, 100},
+        {500, 200},
+        {700, 300}, 
+    };
+    Triangle triangle{std::move(triangle_vertices)};
     triangle.draw();
-
-    auto center_circ{Point{400, 300}};
-    auto circle{Circle{center_circ, 60}};
+    
+    Circle circle{ Point{400, 300}, 60 };
     circle.draw();
 
     // Flush OpenGL buffer
