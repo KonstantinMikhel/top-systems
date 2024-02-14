@@ -23,6 +23,7 @@ public:
     {}
 
     void draw() const override {
+        glColor4d(color.red, color.green, color.blue, color.alpha);
         glBegin(GL_POLYGON);
         for (const auto& vertex : vertices) {
             glVertex2d(vertex.x, vertex.y);

@@ -1,5 +1,6 @@
 #include <GL/glut.h>
 
+#include "Color.hpp"
 #include "Point.hpp"
 #include "Rectangle.hpp"
 #include "Square.hpp"
@@ -27,9 +28,11 @@ void display() {
     glColor3f(0.0, 1.0, 0.0);
 
     Rectangle rectangle{ Point{200, 300}, 100, 50 };
+    rectangle.set_color(Color{0.75, 0.0, 0.0, 1.0});
     rectangle.draw();
 
     Square square{ Point{400, 500}, 75 };
+    square.set_color(Color{0.0, 0.75, 0.0, 1.0});
     square.draw();
 
     std::vector<Point> triangle_vertices{
@@ -38,9 +41,11 @@ void display() {
         {700, 300}, 
     };
     Triangle triangle{std::move(triangle_vertices)};
+    triangle.set_color(Color{0.0, 0.0, 0.75, 1.0});
     triangle.draw();
     
     Circle circle{ Point{400, 300}, 60 };
+    circle.set_color(Color{0.75, 0.75, 0.0, 1.0});
     circle.draw();
 
     // Flush OpenGL buffer
