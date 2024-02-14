@@ -1,17 +1,19 @@
 #pragma once
 
 #include "Shape.hpp"
+#include "Point.hpp"
 
 namespace shapesdraw {
 
 class Rectangle : public Shape {
 private:
+    Point center;
     double width;
     double height;
 
 public:
     Rectangle(const Point& center, double width, double height) 
-        : Shape(center), width(width), height(height)
+        : center(center), width(width), height(height)
     {}
 
     void draw() const override {
