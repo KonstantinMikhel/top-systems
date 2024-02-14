@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Shape.hpp"
 #include "Point.hpp"
 #include "Polygon.hpp"
 
@@ -25,8 +24,8 @@ public:
     }
     void draw() const override {
         glBegin(GL_QUADS);
-        for (auto v : vertices) { 
-            glVertex2d(v.x, v.y);
+        for (const auto& vertex : vertices) { 
+            glVertex2d(vertex.x, vertex.y);
         }
         glEnd();
     }
