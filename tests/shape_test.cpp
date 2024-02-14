@@ -4,10 +4,11 @@
 #include "Rectangle.hpp"
 #include "Square.hpp"
 #include "Triangle.hpp"
+#include "Circle.hpp"
 
 
-constexpr auto Width{800};
-constexpr auto Height{600};
+constexpr auto WindowWidth{800};
+constexpr auto WindowHeight{600};
 
 void init() {
     // Set clear color to white
@@ -15,7 +16,7 @@ void init() {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     // Set up 2D orthographic projection
-    gluOrtho2D(0, Width, 0, Height);
+    gluOrtho2D(0, WindowWidth, 0, WindowHeight);
 }
 
 void display() {
@@ -39,6 +40,10 @@ void display() {
     auto triangle{Triangle{tri_first, tri_second, tri_third}};
     triangle.draw();
 
+    auto center_circ{Point{400, 300}};
+    auto circle{Circle{center_circ, 60}};
+    circle.draw();
+
     // Flush OpenGL buffer
     glFlush();
 }
@@ -46,7 +51,7 @@ void display() {
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(Width, Height);
+    glutInitWindowSize(WindowWidth, WindowHeight);
     glutCreateWindow("Shapes Test");
     init();
     glutDisplayFunc(display);
